@@ -56,7 +56,7 @@ int difTempo(struct timespec t0, struct timespec t1){
 return (t1.tv_sec - t0.tv_sec) + (double)(t1.tv_nsec-t0.tv_nsec) * 1e-9;
 }
 
-main(){
+int main(){
   int vet[TAM_VET]={9,3,5,2,1,7,8,6,4,0}, i;
   struct timespec t0, t1;
 
