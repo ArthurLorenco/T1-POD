@@ -52,8 +52,8 @@ void mostra(int *vetor, int tam){
   return;
 }
 
-int difTempo(struct timespec t0, struct timespec t1){
-return (t1.tv_sec - t0.tv_sec) + (double)(t1.tv_nsec-t0.tv_nsec) * 1e-9;
+double difTempo(clock_t t0, clock_t t1) {
+    return (double)(t1 - t0) / CLOCKS_PER_SEC;
 }
 
 int main(){
