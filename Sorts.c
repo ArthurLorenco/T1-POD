@@ -94,7 +94,7 @@ int partitionQuick(int *vet, int lo, int hi){
 int *quickSort(int *vet, int lo, int hi){
   int p;
   if(lo<hi){
-	p = partition(vet, lo, hi);
+	p = partitionQuick(vet, lo, hi);
 //	printf("lo %d hi %d p %d\n", lo, hi, p);
 	quickSort(vet, lo, p);
 	quickSort(vet, p+1, hi);
@@ -124,7 +124,16 @@ int *ordenacaoParcial(int *vet, int tam){
   return vet;
 }
 
-
-
+void insertionSort(int *array, int n) {
+    for (int i = 1; i < n; i++) {
+        int chave = array[i];
+        int j = i - 1;
+        while (j >= 0 && array[j] > chave) {
+            array[j + 1] = array[j];
+            j--;
+        }
+        array[j + 1] = chave;
+    }
+}
 
 

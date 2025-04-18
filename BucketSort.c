@@ -1,19 +1,78 @@
 #include "BucketSort.h"
+#include "Sorts.h"
 
-// Função de ordenação usada dentro dos buckets (Insertion Sort)
-void insertionSort(int *array, int n) {
-    for (int i = 1; i < n; i++) {
-        int chave = array[i];
-        int j = i - 1;
-        while (j >= 0 && array[j] > chave) {
-            array[j + 1] = array[j];
-            j--;
-        }
-        array[j + 1] = chave;
+int EscolheOrdenacao(void){
+    int qual;
+
+    while(1){
+        printf("Qual tipo de ordenacao voce quer usar?");
+        printf("1 - Select sortr\n 2 - Bubble sort\n 3 - Heap sort\n 4 - Quick sort\n5 - Inserction sort\n\n");
+        
+        if(scanf("%d", &qual) != 1)
+            printf("Entrada invalida");
+        
+        else
+        if(qual > 5 || qual < 1)
+            printf("Opcao invalida\n");
+
+        else
+            break;
     }
+
+    return qual;
+
+}
+
+int *OrdenacaoDosBuckets(int *array, int **buckets, int bucketCount[]){
+
+    int qual = EscolheOrdenacao();
+    int k = 0;
+
+    switch (qual){
+    case 1:
+        for(int i = 0; i < N_BUCKETS; i++){
+            selectSort(buckets[i], bucketCount[i]);
+            for (int j = 0; j < bucketCount[i]; j++)
+            array[k++] = buckets[i][j];
+        }
+        break;
+    case 2:
+        for(int i = 0; i < N_BUCKETS; i++){
+            bubbleSort(buckets[i], bucketCount[i]);
+            for (int j = 0; j < bucketCount[i]; j++)
+            array[k++] = buckets[i][j];
+        }
+        break;
+    case 3:
+        for(int i = 0; i < N_BUCKETS; i++){
+            heapSort(buckets[i], bucketCount[i]);
+            for (int j = 0; j < bucketCount[i]; j++)
+            array[k++] = buckets[i][j];
+        }
+        break;
+    case 4:
+        for(int i = 0; i < N_BUCKETS; i++){
+            quickSort(buckets[i], 0, bucketCount[i]);
+            for (int j = 0; j < bucketCount[i]; j++)
+            array[k++] = buckets[i][j];
+        }
+        break;
+    case 5:
+        for(int i = 0; i < N_BUCKETS; i++){
+            insertionSort(buckets[i], bucketCount[i]);
+            for (int j = 0; j < bucketCount[i]; j++)
+            array[k++] = buckets[i][j];
+        }
+        break;
+
+    }   
+
 }
 
 void bucketSort(int *array, int n) {
+
+
+
     // Encontra o valor máximo para normalizar
     int max = array[0];
     for (int i = 1; i < n; i++)
@@ -35,12 +94,7 @@ void bucketSort(int *array, int n) {
     }
 
     // Ordena cada bucket e junta os resultados
-    int k = 0;
-    for (int i = 0; i < N_BUCKETS; i++) {
-        insertionSort(buckets[i], bucketCount[i]);
-        for (int j = 0; j < bucketCount[i]; j++)
-            array[k++] = buckets[i][j];
-    }
+    OrdenacaoDosBuckets(array, buckets, bucketCount);
 
     // Libera a memória
     for (int i = 0; i < N_BUCKETS; i++)
@@ -48,9 +102,5 @@ void bucketSort(int *array, int n) {
     free(buckets);
 }
 
-void mostra(int *vetor, int n) {
-    for (int i = 0; i < n; i++)
-        printf("%d ", vetor[i]);
-    printf("\n");
-}
+
 
