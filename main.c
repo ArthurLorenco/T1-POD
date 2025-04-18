@@ -12,12 +12,25 @@ void imprimeVetor(int *vetor, int tam){
 
 void lerValores(int* N, int* numeroMaximo){
 
-   printf("Digite quantos numeros o vetor deve ter\n");
-   scanf("%d", N);
+   while(1){
+      printf("Digite quantos numeros o vetor deve ter\n");
+      if(scanf("%d", N) == 1 && *N > 0) break;
+      else{
+         printf("Entrada invalida\n\n");
+         while (getchar() != '\n');
+      }
 
+   }
+
+   
    printf("E qual vai ser o limite superior?\n");
-   scanf("%d", numeroMaximo);
-
+   while(1){
+      if(scanf("%d", numeroMaximo) == 1 && *numeroMaximo > 0) break;
+      else{
+         printf("Entrada invalida\n\n");
+         while (getchar() != '\n');
+      }
+   }
 }
 
 void preencheVetor(int vetor[], int tamanho, int numeroMaximo){

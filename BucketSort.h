@@ -6,5 +6,5 @@
 #define N_BUCKETS 5 // Número de baldes
 
 // Função de ordenação usada dentro dos buckets (Insertion Sort)
+int EscolheOrdenacao(void);
 void bucketSort(int *array, int n);
-int *escolherOrdenacaoEOrdena(int *array, int ***buckets, int *bucketCount[]);

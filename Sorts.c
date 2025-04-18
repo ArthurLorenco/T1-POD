@@ -95,7 +95,7 @@ int *quickSort(int *vet, int lo, int hi){
   int p;
   if(lo<hi){
 	p = partitionQuick(vet, lo, hi);
-//	printf("lo %d hi %d p %d\n", lo, hi, p);
+	//printf("lo %d hi %d p %d\n", lo, hi, p);
 	quickSort(vet, lo, p);
 	quickSort(vet, p+1, hi);
   }

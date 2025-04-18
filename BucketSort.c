@@ -5,12 +5,13 @@ int EscolheOrdenacao(void){
     int qual;
 
     while(1){
-        printf("Qual tipo de ordenacao voce quer usar?");
-        printf("1 - Select sortr\n 2 - Bubble sort\n 3 - Heap sort\n 4 - Quick sort\n5 - Inserction sort\n\n");
+        printf("Qual tipo de ordenacao voce quer usar?\n\n");
+        printf("1 - Select sort\n2 - Bubble sort\n3 - Heap sort\n4 - Quick sort\n5 - Inserction sort\n\n");
         
-        if(scanf("%d", &qual) != 1)
+        if(scanf("%d", &qual) != 1){
             printf("Entrada invalida");
-        
+            while (getchar() != '\n');
+        }        
         else
         if(qual > 5 || qual < 1)
             printf("Opcao invalida\n");
@@ -52,7 +53,7 @@ int *OrdenacaoDosBuckets(int *array, int **buckets, int bucketCount[]){
         break;
     case 4:
         for(int i = 0; i < N_BUCKETS; i++){
-            quickSort(buckets[i], 0, bucketCount[i]);
+            quickSort(buckets[i], 0, bucketCount[i] - 1);
             for (int j = 0; j < bucketCount[i]; j++)
             array[k++] = buckets[i][j];
         }
