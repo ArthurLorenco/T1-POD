@@ -97,9 +97,9 @@ int *quickSort(int *vet, int lo, int hi) {
     return vet;
 }
 
-int *ordenacaoParcial(int *vet, int tam) {
+int *ordenacaoParcial(int vet[], int tam) {
     int i, j, k = 0, temp;
-    int gaps[8] = {701, 301, 132, 57, 23, 10, 4, 2};
+    int gaps[8]={701,301,132,57,23,10,4};
 
     while (gaps[k] > ((tam / 2) - 1))
         k++;

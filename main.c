@@ -3,8 +3,8 @@
 
 /* gcc main.c Sorts.c BucketSort.c -ansi -o main */
 
-/* Função para imprimir os elementos do vetor */
 
+/* Função para imprimir os elementos do vetor */
 void imprimeVetor(int *vetor, int tam) {
    int cont;
    for (cont = 0; cont < tam; cont++)
@@ -35,6 +35,25 @@ void lerValores(int* N, int* numeroMaximo) {
    }
 }
 
+void EscolherOrdenarParcialmente(int vetor[], int tamanho){
+
+   int escolha;
+
+   while(1){
+      printf("Deseja ordenar parcialmente o vetor antes?\n0 - nao\n1 - sim\n\n");
+
+      if(scanf("%d", &escolha) == 1 && (escolha == 0 || escolha == 1)){
+         if(escolha == 1) 
+            ordenacaoParcial(vetor, tamanho);
+         break;
+      }
+      else{
+         printf("Entrada invalida\n\n");
+         while(getchar() != '\n');
+      }
+   }
+}
+
 /* Função para preencher o vetor com valores aleatórios */
 void preencheVetor(int vetor[], int tamanho, int numeroMaximo) {
    int i;
@@ -43,13 +62,16 @@ void preencheVetor(int vetor[], int tamanho, int numeroMaximo) {
 }
 
 int main() {
-   int N, numeroMaximo;
+   int numeroMaximo;
+   size_t N;
 
    lerValores(&N, &numeroMaximo);
 
-   int vetor[N];
+   int *vetor = malloc(N * sizeof(int));
 
    preencheVetor(vetor, N, numeroMaximo);
+
+   EscolherOrdenarParcialmente(vetor, N);
 
    /*imprimeVetor(vetor, N);*/
 
