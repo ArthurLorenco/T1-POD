@@ -40,7 +40,7 @@ void EscolherOrdenarParcialmente(int vetor[], int tamanho){
    int escolha;
 
    while(1){
-      printf("Deseja ordenar parcialmente o vetor antes?\n0 - nao\n1 - sim\n\n");
+      printf("Deseja ordenar parcialmente o vetor antes?\n0 - nao\n1 - sim\n");
 
       if(scanf("%d", &escolha) == 1 && (escolha == 0 || escolha == 1)){
          if(escolha == 1)

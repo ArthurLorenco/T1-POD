@@ -80,10 +80,33 @@ int *OrdenacaoDosBuckets(int *array, int N_BUCKETS, int **buckets, int bucketCou
     return array;
 }
 
+int EscolherQuantosBuckets(int n){
+
+    int quantosBuckets;
+    while (1){
+
+        printf("Quantos buckets voce quer (digite 0 para o numero padrao, sqrt(n))\n");
+
+        if(scanf("%d", &quantosBuckets) == 1 && quantosBuckets>=0){
+            if(quantosBuckets == 0)
+                quantosBuckets = sqrt(n);
+            if (quantosBuckets > 10000) quantosBuckets = 10000;
+            break;
+        }else{
+            printf("Entrada invalida");
+            while(getchar() != '\n');
+        }
+
+    }
+    
+    return quantosBuckets;
+
+}
+
 void bucketSort(int *array, int n) {
     clock_t t0, t1;
 
-    int N_BUCKETS = (int)sqrt(n);
+    int N_BUCKETS = EscolherQuantosBuckets(n);
 
     /* Encontra o valor máximo para normalizar */
     int max = array[0];
@@ -96,14 +119,11 @@ void bucketSort(int *array, int n) {
     /* Cria os buckets */
     int **buckets = malloc(N_BUCKETS * sizeof(int*));
     
-    int *bucketCount =  malloc(N_BUCKETS * sizeof(int));
-    int bucketSize = n; /* Tamanho máximo por bucket */
+    int *bucketCount =  calloc(N_BUCKETS, sizeof(int));
+    int bucketSize = (n / N_BUCKETS) * 2; /* Tamanho máximo por bucket */
 
     for (i = 0; i < N_BUCKETS; i++){
-        buckets[i] = malloc(bucketSize * sizeof(int));
-        bucketCount[i] = 0;
-        for(j = 0; j < bucketSize; j++) 
-            buckets[i][j] = 0;
+        buckets[i] = calloc(bucketSize, sizeof(int));
     }
 
     /* Distribui os elementos nos buckets */
