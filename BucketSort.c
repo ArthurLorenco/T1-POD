@@ -13,7 +13,7 @@ int EscolheOrdenacao(void) {
 
     while (1) {
         printf("Qual tipo de ordenacao voce quer usar?\n\n");
-        printf("1 - Select sort\n2 - Bubble sort\n3 - Heap sort\n4 - Quick sort\n5 - Inserction sort\n\n");
+        printf("1 - Select sort\n2 - Bubble sort\n3 - Heap sort\n4 - Quick sort\n5 - Insertion sort\n\n");
 
         if (scanf("%d", &qual) != 1) {
             printf("Entrada invalida");
@@ -134,7 +134,6 @@ void bucketSort(int *array, int n) {
 
     /* Ordena cada bucket e junta os resultados */
     OrdenacaoDosBuckets(array, N_BUCKETS, buckets, bucketCount);
-
 
     /* Libera a memória */
     for (i = 0; i < N_BUCKETS; i++)
