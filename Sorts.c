@@ -97,6 +97,18 @@ int *quickSort(int *vet, int lo, int hi) {
     return vet;
 }
 
+void ordenacaoParcialInversa(int *vet, int tam, float porcentagemDesordenado){
+    int elementos_inverter = (int)(tam * porcentagemDesordenado / 100.0f);
+    quickSort(vet, 0, elementos_inverter - 1);
+    
+    int i;
+    for (i = 0; i < elementos_inverter / 2; i++) {
+        int temp = vet[i];
+        vet[i] = vet[elementos_inverter - 1 - i];
+        vet[elementos_inverter - 1 - i] = temp;
+    }
+}
+
 int *ordenacaoParcial(int *vet, int tam) {
     int i, j, k = 0, temp;
     int gaps[8]={701,301,132,57,23,10,4};

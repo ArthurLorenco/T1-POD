@@ -9,4 +9,5 @@ void heapSort(int a[], int n);
 int partitionQuick(int *vet, int lo, int hi);
 int *quickSort(int *vet, int lo, int hi);
 int *ordenacaoParcial(int *vet, int tam);
+void ordenacaoParcialInversa(int *vet, int tam, float porcentagemDesordenado);
 void insertionSort(int *array, int n);
