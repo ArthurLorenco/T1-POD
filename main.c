@@ -18,7 +18,7 @@ void lerValores(int *N, int *numeroMaximo)
 
    while (1)
    {
-      printf("Digite quantos numeros o vetor deve ter\n");
+      printf("\nDigite quantos numeros o vetor deve ter\n");
       if (scanf("%d", N) == 1 && *N > 0)
          break;
       else
@@ -29,7 +29,7 @@ void lerValores(int *N, int *numeroMaximo)
       }
    }
 
-   printf("E qual vai ser o limite superior?\n");
+   printf("\nQual vai ser o limite superior?\n");
    while (1)
    {
       if (scanf("%d", numeroMaximo) == 1 && *numeroMaximo > 0)
@@ -48,15 +48,15 @@ void escolherOrdenar(int vetor[], int tamanho){
    float porcento;
 
    while (1){
-      printf("Escolha a forma de ordenar o vetor?\n");
+      printf("\nEscolha a forma de pre-ordenar o vetor\n");
       printf("1 - Ordenar Parcialmente\n");
       printf("2 - Ordenar Parcial Inversamente\n");
-      printf("3 - Ordenar de forma padrao(valores aleatorios)\n");
+      printf("3 - Nao pre-ordenar (valores aleatorios)\n");
       if (scanf("%d", &escolha) != 1){
-            printf("Entrada invalida. Tente novamente.\n");
-            while (getchar() != '\n');
-            continue;
-        }
+         printf("Entrada invalida. Tente novamente.\n");
+         while (getchar() != '\n');
+         continue;
+      }
 
       switch (escolha){
       case 1:
@@ -64,16 +64,23 @@ void escolherOrdenar(int vetor[], int tamanho){
          ordenacaoParcial(vetor, tamanho);
          break;
       case 2:
-         printf("Digite a porcentagem que quer ordenar (ex: 50 para 50%%, 75 == 75%%):");
+         printf("Digite a porcentagem que quer ordenar (ex: 50 para 50%%, 75 para 75%%):\n");
          scanf("%f", &porcento); 
+         if(porcento > 100 || porcento < 0){
+            printf("Porcentagem invalida\n");
+            continue;
+         }
          printf("Ordenando parcialmente de forma inversa...\n");
          ordenacaoParcialInversa(vetor, tamanho, porcento);
          break;
       case 3:
          printf("Mantendo a ordem padrao.\n");
          break;
+      default:
+         printf("Opcao invalida\n");
+         continue;
       }
-         break;
+      break;
    }
 }
 
@@ -97,6 +104,7 @@ int main()
    preencheVetor(vetor, N, numeroMaximo);
 
    escolherOrdenar(vetor, N);
+
    /*imprimeVetor(vetor, N);*/
 
    bucketSort(vetor, N);

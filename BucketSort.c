@@ -13,7 +13,7 @@ int EscolheOrdenacao(void) {
 
     while (1) {
         printf("Qual tipo de ordenacao voce quer usar?\n\n");
-        printf("1 - Select sort\n2 - Bubble sort\n3 - Heap sort\n4 - Quick sort\n5 - Insertion sort\n\n");
+        printf("1 - Select sort\n2 - Bubble sort\n3 - Heap sort\n4 - Quick sort\n5 - Insertion sort (padrao)\n\n");
 
         if (scanf("%d", &qual) != 1) {
             printf("Entrada invalida");
@@ -85,7 +85,7 @@ int EscolherQuantosBuckets(int n){
     int quantosBuckets;
     while (1){
 
-        printf("Quantos buckets voce quer (digite 0 para o numero padrao, sqrt(n))\n");
+        printf("\nQuantos buckets voce quer (digite 0 para o numero padrao, sqrt(n))\n");
 
         if(scanf("%d", &quantosBuckets) == 1 && quantosBuckets>=0){
             if(quantosBuckets == 0)
