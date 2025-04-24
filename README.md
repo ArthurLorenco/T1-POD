@@ -2,7 +2,7 @@
 
 Trabalho para a cadeira de Pesquisa e Ordenação de dados
 
-## [Link para o relatório](https://docs.google.com/document/d/1__a_jLDtYgs2NlDTN85cSuDg7Ir8ZKUpNcAXTmyz7w0/edit?usp=sharing)
+**[Link para o relatório](https://docs.google.com/document/d/1__a_jLDtYgs2NlDTN85cSuDg7Ir8ZKUpNcAXTmyz7w0/edit?usp=sharing)**
 
 ## Descrição do trabalho:
 

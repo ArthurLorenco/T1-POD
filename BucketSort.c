@@ -107,7 +107,7 @@ void bucketSort(int *array, int n) {
     clock_t t0, t1;
 
     int N_BUCKETS = EscolherQuantosBuckets(n);
-
+ 
     /* Encontra o valor máximo para normalizar */
     int max = array[0];
     int i, j;
@@ -120,7 +120,7 @@ void bucketSort(int *array, int n) {
     int **buckets = malloc(N_BUCKETS * sizeof(int*));
     
     int *bucketCount =  calloc(N_BUCKETS, sizeof(int));
-    int bucketSize = (n / N_BUCKETS) * 2; /* Tamanho máximo por bucket */
+    int bucketSize = (n / N_BUCKETS + 1) * 2; /* Tamanho máximo por bucket */
 
     for (i = 0; i < N_BUCKETS; i++){
         buckets[i] = calloc(bucketSize, sizeof(int));
