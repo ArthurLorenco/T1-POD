@@ -1,6 +1,10 @@
 #include <stdio.h>
 #include "BucketSort.h"
-/* gcc main.c Sorts.c BucketSort.c -ansi -o main */
+
+/* COMPILAR WINDOWS:  gcc main.c Sorts.c BucketSort.c -ansi -o main */
+
+/* COMPILAR NO LINUX: gcc main.c Sorts.c BucketSort.c -ansi -o main -lm */
+
 
 /* Função para imprimir os elementos do vetor */
 void imprimeVetor(int *vetor, int tam)
@@ -95,7 +99,7 @@ void preencheVetor(int vetor[], int tamanho, int numeroMaximo)
 int main()
 {
    int numeroMaximo;
-   size_t N;
+   int N;
 
    lerValores(&N, &numeroMaximo);
 
